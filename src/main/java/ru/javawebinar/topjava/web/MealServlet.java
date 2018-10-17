@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -22,6 +23,7 @@ public class MealServlet extends HttpServlet {
         log.debug("redirect to meals");
         List<MealWithExceed> mealWithExceedList = new MealsList().getFilteredWithExceeded();
         req.setAttribute("list", mealWithExceedList);
+        req.setAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
         req.getRequestDispatcher("/meals.jsp").forward(req, resp);
         //resp.sendRedirect("meals.jsp");
     }

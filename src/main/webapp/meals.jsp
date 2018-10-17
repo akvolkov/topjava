@@ -22,7 +22,7 @@
             <c:if test = "${meal.exceed eq true}">
                 <tr>
                     <td>
-                        <font color="red"> ${meal.dateTime}</font>
+                        <font color="red"> ${localDateTimeFormat.parse(meal.dateTime)}</font>
                     </td>
                     <td>
                         <font color="red"> ${meal.description}</font>
@@ -35,7 +35,7 @@
             <c:if test = "${meal.exceed eq false}">
                 <tr>
                     <td>
-                        <font color="green"> ${meal.dateTime}</font>
+                        <font color="green"> ${localDateTimeFormat.parse(meal.dateTime)}</font>
                     </td>
                     <td>
                         <font color="green"> ${meal.description}</font>
